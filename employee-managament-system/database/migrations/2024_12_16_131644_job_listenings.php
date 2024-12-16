@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Employer;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,6 +16,7 @@ return new class extends Migration
     {
         Schema::create('job', function(Blueprint $table){
             $table->id();
+            $table->foreignIdFor(\App\Models\Employer::class);
             $table->string('title');
             $table->string('salary');
             // Correct usage: specify a column name for the timestamp
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down() : void
     {
-        Schema::dropIfExists('job_listenings');
+        Schema::dropIfExists('job');
     }
 };

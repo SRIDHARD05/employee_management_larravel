@@ -15,9 +15,7 @@ return new class extends Migration
     {
         Schema::create('employers', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\Employer::class);
-            $table->string('title');
-            $table->string('salary');
+            $table->unsignedBigInteger('employer_id');
             $table->timestamps();
         });
     }
